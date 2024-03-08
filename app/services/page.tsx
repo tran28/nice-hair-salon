@@ -1,19 +1,6 @@
-'use client';
-import Nav from "@/app/components/Nav";
-import Footer from "../components/Footer";
-import { motion } from "framer-motion";
-
 export default function services() {
   return (
-    <motion.div
-      className="flex gap-10 flex-col"
-      initial={{ y: 25, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{
-        delay: 0.1,
-        duration: 0.75,
-      }}>
-      <Nav />
+    <>
       <h1 className="text-2xl font-semibold tracking-tight">Services</h1>
       <div className="flex flex-col gap-3">
         <div className="flex flex-row justify-between">
@@ -52,7 +39,6 @@ export default function services() {
           <p>Please Contact</p>
         </div>
       </div>
-      <Footer />
-    </motion.div>
+    </>
   );
 }

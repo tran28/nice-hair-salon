@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from "framer-motion";
 import Head from "next/head";
 import Logo from "./components/Logo";
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 const roboto = Roboto_Condensed({ subsets: ["latin"] });
 
@@ -28,7 +30,18 @@ export default function RootLayout({
             key={pathname}>
             <div className='flex justify-center items-center min-h-screen bg-stone-50'>
               <div className="w-full min-h-screen max-w-[80rem] px-8 py-2 mx-auto">
-                {children}
+                <motion.div
+                  className="flex gap-10 flex-col"
+                  initial={{ y: 25, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{
+                    delay: 0.1,
+                    duration: 0.75,
+                  }}>
+                  <Nav />
+                  {children}
+                  <Footer />
+                </motion.div>
               </div>
             </div>
 
