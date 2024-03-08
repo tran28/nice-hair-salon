@@ -35,7 +35,7 @@ export default function RootLayout({
                   initial={{ y: 25, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{
-                    delay: 0.1,
+                    delay: 0.2,
                     duration: 0.75,
                   }}>
                   <Nav />
@@ -50,7 +50,7 @@ export default function RootLayout({
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 0 }}
               exit={{ scaleY: 1 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}>
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
               <div className="flex min-h-screen w-full justify-center items-center">
                 <Logo />
               </div>
@@ -61,7 +61,7 @@ export default function RootLayout({
               initial={{ scaleY: 1 }}
               animate={{ scaleY: 0 }}
               exit={{ scaleY: 0 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}>
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
               <div className="flex min-h-screen w-full justify-center items-center">
                 <Logo />
               </div>
