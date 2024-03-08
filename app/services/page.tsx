@@ -40,7 +40,7 @@ export default function services() {
             <p>Tattoo |</p>
             <p className="pl-2 font-light">Eyebrows, Eyelids, Lips</p>
           </div>
-          <p>$55 and up</p>
+          <p>Please Contact</p>
         </div>
       </div>
       <Footer />
