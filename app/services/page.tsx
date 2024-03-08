@@ -3,8 +3,7 @@ import Footer from "../components/Footer";
 
 export default function services() {
   return (
-    <div className="flex gap-10 flex-col">
-      <Nav />
+    <>
       <h1 className="text-2xl font-semibold tracking-tight">Services</h1>
       <div className="flex flex-col gap-3">
         <div className="flex flex-row justify-between">
@@ -43,7 +42,6 @@ export default function services() {
           <p>Please Contact</p>
         </div>
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }
