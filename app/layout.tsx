@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`border-y-[25px] border-x-[28px] border-stone-900 bg-stone-900 ${roboto.className}`}>
+      <body className={`border-y-[25px] border-x-[12px] border-stone-900 bg-stone-900 md:border-x-[28px] ${roboto.className}`}>
         <div className='flex justify-center items-center min-h-screen bg-stone-50'>
           <div className="w-full min-h-screen max-w-[80rem] px-8 py-2 mx-auto">
             {children}
