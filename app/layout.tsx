@@ -5,9 +5,10 @@ import { data } from '@/app/metadata'
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from "framer-motion";
 import Head from "next/head";
-import Logo from "./components/Logo";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import { Variants } from 'framer-motion';
+
 
 const roboto = Roboto_Condensed({ subsets: ["latin"] });
 
@@ -18,6 +19,12 @@ export default function RootLayout({
 }>) {
   const pathname = usePathname();
 
+  const pageTransition: Variants = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
+
   return (
     <html lang="en">
       <Head>
@@ -27,45 +34,25 @@ export default function RootLayout({
       <body className={`border-y-[25px] border-x-[12px] border-stone-900 bg-stone-900 md:border-x-[28px] ${roboto.className}`}>
         <AnimatePresence mode="wait">
           <motion.div
-            key={pathname}>
+            key={pathname}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            variants={pageTransition}
+            transition={{ duration: 0.5 }}>
             <div className='flex justify-center items-center min-h-screen bg-stone-50'>
               <div className="w-full min-h-screen max-w-[80rem] px-8 py-2 mx-auto">
                 <motion.div
                   className="flex gap-10 flex-col"
                   initial={{ y: 25, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  transition={{
-                    delay: 0.2,
-                    duration: 0.75,
-                  }}>
+                  transition={{ delay: 0.2, duration: 0.75 }}>
                   <Nav />
                   {children}
                   <Footer />
                 </motion.div>
               </div>
             </div>
-
-            <motion.div
-              className="absolute top-0 left-0 w-full h-screen bg-stone-50 origin-top z-20"
-              initial={{ scaleY: 0 }}
-              animate={{ scaleY: 0 }}
-              exit={{ scaleY: 1 }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
-              <div className="flex min-h-screen w-full justify-center items-center">
-                <Logo />
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="absolute top-0 left-0 w-full h-screen bg-stone-50 origin-top z-20"
-              initial={{ scaleY: 1 }}
-              animate={{ scaleY: 0 }}
-              exit={{ scaleY: 0 }}
-              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
-              <div className="flex min-h-screen w-full justify-center items-center">
-                <Logo />
-              </div>
-            </motion.div>
           </motion.div>
         </AnimatePresence>
       </body>
