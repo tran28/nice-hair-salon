@@ -4,7 +4,6 @@ import "./globals.css";
 import { data } from '@/app/metadata'
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from "framer-motion";
-import Head from "next/head";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { Variants } from 'framer-motion';
@@ -27,10 +26,10 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <Head>
+      <head>
         <title>{data.title}</title>
         <meta name='description' content={data.description} />
-      </Head>
+      </head>
       <body className={`border-y-[25px] border-x-[12px] border-stone-900 bg-stone-900 md:border-x-[28px] ${roboto.className}`}>
         <AnimatePresence mode="wait">
           <motion.div
