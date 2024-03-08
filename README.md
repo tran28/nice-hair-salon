@@ -8,4 +8,4 @@ Run the development server:
 npm run dev
 ```
 
-The wesbite is built using Typescript and Tailwind CSS in Next.js. 
+The wesbite uses Typescript and Tailwind CSS in Next.js. 
