@@ -4,4 +4,5 @@ export const data = {
     location: "3635 Cawthra Rd, Mississauga, ON L5A 2Y5",
     phoneNumber: "(437) 241-5189",
     tel: "tel:+14372415189",
+    facebook: "https://www.facebook.com/profile.php?id=61556935263279",
 };
