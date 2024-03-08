@@ -3,7 +3,7 @@ import Logo from "./Logo";
 
 function Nav() {
     return (
-        <div className={`sticky top-0 z-50 bg-stone-50 lg:bg-transparent lg:static w-full`}>
+        <div className={`sticky top-0 z-10 bg-stone-50 lg:bg-transparent lg:static w-full`}>
             <div className="flex justify-between items-center py-4 gap-5 lg:px-0">
                 <Logo />
                 <div className="flex flex-row gap-5 text-sm">
