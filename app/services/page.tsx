@@ -20,7 +20,7 @@ export default function services() {
           <p>$90 and up</p>
         </div>
         <div className="flex flex-row justify-between">
-          <p>Hightlight</p>
+          <p>Highlight</p>
           <p>$140 and up</p>
         </div>
         <div className="flex flex-row justify-between">
