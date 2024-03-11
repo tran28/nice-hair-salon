@@ -8,7 +8,7 @@ const Banner: React.FC<BannerProps> = ({ phoneNumber }) => {
     return (
       <div className="bg-stone-900 text-stone-50 py-4 px-2 text-center w-full text-sm tracking-tighter">
         <p>
-          Walk-ins welcome or call{' '}
+          Walk-ins welcome or contact{' '}
           <a href={`tel:${phoneNumber}`} className="underline">
             {phoneNumber}
           </a>{' '}
