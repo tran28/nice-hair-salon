@@ -3,6 +3,6 @@ import ImageContainer from "./components/ImageContainer";
 
 export default function Home() {
   return (   
-      <ImageContainer src={hero_photo} alt="" />
+      <ImageContainer src={hero_photo} alt="Nice Hair Salon" />
   );
 }
