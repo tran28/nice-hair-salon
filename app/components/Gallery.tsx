@@ -20,7 +20,7 @@ const Gallery: React.FC = () => {
             <div className="grid grid-cols-3 md:grid-cols-9 gap-1">
                 {images.map((src, index) => (
                     <div key={index} className="w-full h-full aspect-square relative">
-                        <a href='https://www.instagram.com/nicehairsalon.mississauga' target="_blank" rel="noopener noreferrer">
+                        <a href='https://www.instagram.com/nicehairsalon.ca/' target="_blank" rel="noopener noreferrer">
                             <Image
                                 src={src}
                                 alt={'Nice Hair Salon, Mississauga'}
