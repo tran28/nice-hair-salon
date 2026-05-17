@@ -1,9 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @layer base {
   body {
-    @apply leading-relaxed text-stone-900 antialiased selection:bg-stone-900 selection:text-stone-300
+    @apply leading-relaxed text-stone-900 antialiased selection:bg-stone-900 selection:text-stone-300;
   }
 }
