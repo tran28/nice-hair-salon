@@ -1,22 +1,27 @@
 import Link from "next/link";
 import Logo from "./Logo";
 
-function Nav() {
-    return (
-        <div className={`sticky top-0 z-10 bg-stone-50 lg:bg-transparent lg:static w-full`}>
-            <div className="flex justify-between items-center py-4 gap-5 lg:px-0">
-                <Logo />
-                <div className="flex flex-row gap-5 text-sm">
-                    <Link href="/services" passHref>
-                        <div className="cursor-pointer hover:text-stone-500">SERVICES</div>
-                    </Link>
-                    <Link href="/store" passHref>
-                        <div className="cursor-pointer hover:text-stone-500">STORE</div>
-                    </Link>
-                </div>
-            </div>
-        </div>
-    );
+export default function Nav() {
+  return (
+    <nav
+      aria-label="Primary"
+      className="sticky top-0 z-20 bg-stone-50/85 backdrop-blur-md border-b border-stone-200/70"
+    >
+      <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 lg:px-14 flex justify-between items-center py-5 md:py-7">
+        <Logo />
+        <ul className="flex flex-row gap-6 md:gap-10 text-[0.7rem] md:text-xs tracking-[0.28em] uppercase">
+          <li>
+            <Link href="/services" className="hover:text-stone-500 transition-colors">
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link href="/store" className="hover:text-stone-500 transition-colors">
+              Visit
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
 }
-
-export default Nav;

@@ -1,15 +1,18 @@
 import Link from "next/link";
 
-function Logo() {
-    return (
-        <Link href="/" passHref>
-            <div className="text-2xl md:text-4xl flex flex-col cursor-pointer">
-                <div className="font-light tracking-tighter">NICE HAIR</div>
-                <div className="font-semibold border-l-4 border-stone-900 pl-2">SALON</div>
-            </div>
-        </Link>
-
-    );
+export default function Logo() {
+  return (
+    <Link
+      href="/"
+      aria-label="Nice Hair Salon — home"
+      className="group inline-flex flex-col leading-none"
+    >
+      <span className="font-display text-2xl md:text-3xl font-light tracking-tight italic">
+        Nice Hair
+      </span>
+      <span className="font-sans text-[0.65rem] md:text-xs tracking-[0.32em] uppercase text-stone-600 group-hover:text-stone-900 transition-colors mt-1">
+        Salon · Mississauga
+      </span>
+    </Link>
+  );
 }
-
-export default Logo;

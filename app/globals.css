@@ -1,7 +1,25 @@
 @import "tailwindcss";
 
+@theme {
+  --font-display: var(--font-display), ui-serif, Georgia, serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
 @layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
   body {
-    @apply leading-relaxed text-stone-900 antialiased selection:bg-stone-900 selection:text-stone-300;
+    @apply leading-relaxed text-stone-900 selection:bg-stone-900 selection:text-stone-100;
+  }
+  h1, h2, h3 {
+    @apply font-display tracking-tight;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-stone-300 rounded-full;
   }
 }

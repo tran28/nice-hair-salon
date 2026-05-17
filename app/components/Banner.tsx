@@ -1,21 +1,17 @@
-import React from 'react';
-
 interface BannerProps {
   phoneNumber: string;
 }
 
-const Banner: React.FC<BannerProps> = ({ phoneNumber }) => {
-    return (
-      <div className="bg-stone-900 text-stone-50 py-4 px-2 text-center w-full text-sm tracking-tighter">
-        <p>
-          Walk-ins welcome or contact{' '}
-          <a href={`tel:${phoneNumber}`} className="underline">
-            {phoneNumber}
-          </a>{' '}
-          to book an appointment. Thank you!
-        </p>
-      </div>
-    );
-  };
-  
-  export default Banner;
+export default function Banner({ phoneNumber }: BannerProps) {
+  return (
+    <div className="bg-stone-900 text-stone-100 text-center text-xs tracking-[0.18em] uppercase py-3 px-4">
+      <p>
+        Walk-ins welcome OR{" "}
+        <a href={`tel:${phoneNumber}`} className="underline underline-offset-4 hover:text-white">
+          Call {phoneNumber}
+        </a>{" "}
+        to book
+      </p>
+    </div>
+  );
+}

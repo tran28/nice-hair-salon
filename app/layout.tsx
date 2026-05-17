@@ -1,16 +1,76 @@
 import type { Metadata } from "next";
-import { Roboto_Condensed } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
-import { data } from '@/app/metadata'
+import { data } from "@/app/metadata";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Banner from "./components/Banner";
 
-const roboto = Roboto_Condensed({ subsets: ["latin"] });
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  axes: ["opsz", "SOFT"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: data.title,
+  metadataBase: new URL(data.siteUrl),
+  title: {
+    default: `${data.title} — Mississauga Hair Salon`,
+    template: `%s — ${data.title}`,
+  },
   description: data.description,
+  keywords: [
+    "hair salon Mississauga",
+    "haircut Mississauga",
+    "hair colour Mississauga",
+    "perm Mississauga",
+    "balayage Mississauga",
+    "bridal hair Mississauga",
+    "Cawthra Rd salon",
+  ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "en_CA",
+    url: data.siteUrl,
+    siteName: data.title,
+    title: `${data.title} — Mississauga Hair Salon`,
+    description: data.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${data.title} — Mississauga Hair Salon`,
+    description: data.description,
+  },
+  robots: { index: true, follow: true },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  name: data.title,
+  description: data.shortDescription,
+  url: data.siteUrl,
+  telephone: data.phoneNumber,
+  image: `${data.siteUrl}/icon.svg`,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: data.streetAddress,
+    addressLocality: data.city,
+    addressRegion: data.region,
+    postalCode: data.postalCode,
+    addressCountry: data.country,
+  },
+  openingHours: data.hours,
+  sameAs: [data.facebook, data.instagram],
+  priceRange: "$$",
 };
 
 export default function RootLayout({
@@ -19,19 +79,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="bg-stone-900">
+    <html lang="en-CA" className={`${fraunces.variable} ${inter.variable}`}>
+      <body className="bg-stone-50 text-stone-900 font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Banner phoneNumber={data.phoneNumber} />
-        <div className={`border-b-[25px] border-x-[12px] border-stone-900 md:border-x-[28px] ${roboto.className}`}>
-          <div className='flex justify-center items-center min-h-screen bg-stone-50'>
-            <div className="w-full min-h-screen max-w-[80rem] px-8 py-2 mx-auto">
-              <div className="flex gap-10 flex-col">
-                <Nav />
-                {children}
-                <Footer />
-              </div>
-            </div>
-          </div>
+        <Nav />
+        <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 lg:px-14">
+          <main className="min-h-[60vh]">{children}</main>
+          <Footer />
         </div>
       </body>
     </html>
