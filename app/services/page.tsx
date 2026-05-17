@@ -20,11 +20,8 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="pt-12 md:pt-20 pb-16 max-w-3xl">
-      <p className="text-[0.7rem] tracking-[0.32em] uppercase text-stone-500 mb-4">
-        Menu
-      </p>
-      <h1 className="font-display text-5xl md:text-6xl tracking-tight mb-3">
+    <section className="pt-10 md:pt-16 lg:pt-24 pb-16 max-w-3xl">
+      <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight mb-6">
         Services
       </h1>
       <p className="text-stone-600 mb-12 md:mb-16 max-w-xl leading-relaxed">

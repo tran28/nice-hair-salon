@@ -11,17 +11,12 @@ export const metadata: Metadata = {
 
 export default function Store() {
   return (
-    <section className="pt-12 md:pt-20 pb-16">
+    <section className="pt-10 md:pt-16 lg:pt-24 pb-16">
       <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
         <div className="lg:col-span-5 flex flex-col gap-8">
-          <div>
-            <p className="text-[0.7rem] tracking-[0.32em] uppercase text-stone-500 mb-4">
-              Visit
-            </p>
-            <h1 className="font-display text-5xl md:text-6xl tracking-tight">
-              Come say hello.
-            </h1>
-          </div>
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight">
+            Walk in. Sit down. <em className="italic font-light">Welcome.</em>
+          </h1>
 
           <div className="flex flex-col gap-1">
             <p className="text-[0.7rem] tracking-[0.32em] uppercase text-stone-500">
