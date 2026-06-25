@@ -5,11 +5,12 @@ import photo3 from "@/app/assets/photo3.webp";
 import photo4 from "@/app/assets/photo4.webp";
 import photo5 from "@/app/assets/photo5.webp";
 import photo6 from "@/app/assets/photo6.webp";
-import photo7 from "@/app/assets/photo7.webp";
 import photo8 from "@/app/assets/photo8.webp";
 import photo9 from "@/app/assets/photo9.webp";
 import { data } from "@/app/metadata";
 
+// Portrait shots only (3:4) so nothing is cropped — the landscape
+// room photo is intentionally left out to keep the grid consistent.
 const images: { src: StaticImageData; alt: string }[] = [
   { src: photo1, alt: "Fresh haircut styled at Nice Hair Salon" },
   { src: photo2, alt: "Hair colour treatment at Nice Hair Salon" },
@@ -17,35 +18,34 @@ const images: { src: StaticImageData; alt: string }[] = [
   { src: photo4, alt: "Bridal updo by Nice Hair Salon" },
   { src: photo5, alt: "Long layered cut by Nice Hair Salon" },
   { src: photo6, alt: "Hair styling at Nice Hair Salon" },
-  { src: photo7, alt: "Salon work by Nice Hair Salon Mississauga" },
   { src: photo8, alt: "Hair finish at Nice Hair Salon" },
   { src: photo9, alt: "Styled look at Nice Hair Salon Mississauga" },
 ];
 
 export default function Gallery() {
   return (
-    <section aria-label="Gallery" className="w-full">
+    <section aria-label="Gallery" className="w-full flex flex-col gap-8">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3">
+        {images.map((img, i) => (
+          <div key={i} className="aspect-[3/4] relative overflow-hidden bg-stone-100">
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              sizes="(max-width: 768px) 50vw, 25vw"
+              quality={72}
+              className="object-cover"
+            />
+          </div>
+        ))}
+      </div>
       <a
         href={data.instagram}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Open Nice Hair Salon Instagram in a new tab"
-        className="block group"
+        className="eyebrow self-center hover:text-stone-900 transition-colors"
       >
-        <div className="grid grid-cols-3 md:grid-cols-9 gap-[2px]">
-          {images.map((img, i) => (
-            <div key={i} className="aspect-square relative overflow-hidden">
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(max-width: 768px) 33vw, 11vw"
-                quality={60}
-                className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              />
-            </div>
-          ))}
-        </div>
+        More on Instagram
       </a>
     </section>
   );

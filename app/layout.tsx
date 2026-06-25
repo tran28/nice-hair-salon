@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Cormorant_Garamond, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { data } from "@/app/metadata";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import Banner from "./components/Banner";
 
-const fraunces = Fraunces({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-  axes: ["opsz", "SOFT"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
 });
 
-const inter = Inter({
+const hanken = Hanken_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
@@ -79,15 +80,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-CA" className={`${fraunces.variable} ${inter.variable}`}>
-      <body className="bg-stone-50 text-stone-900 font-sans antialiased">
+    <html lang="en-CA" className={`${cormorant.variable} ${hanken.variable}`}>
+      <body className="bg-cream text-ink font-sans antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <Banner phoneNumber={data.phoneNumber} />
+        <Banner phoneNumber={data.phoneNumber} bookingUrl={data.bookingUrl} />
         <Nav />
-        <div className="mx-auto w-full max-w-[88rem] px-6 md:px-10 lg:px-14">
+        <div className="mx-auto w-full max-w-6xl px-6 md:px-10 lg:px-12">
           <main className="min-h-[60vh]">{children}</main>
           <Footer />
         </div>

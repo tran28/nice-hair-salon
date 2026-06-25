@@ -11,38 +11,49 @@ export const metadata: Metadata = {
 
 export default function Store() {
   return (
-    <section className="pt-10 md:pt-16 lg:pt-24 pb-16">
-      <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
-        <div className="lg:col-span-5 flex flex-col gap-8">
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-tight">
-            Walk in. Sit down. <em className="italic font-light">Welcome.</em>
+    <section className="pt-16 md:pt-20 lg:pt-24 pb-20">
+      <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="lg:col-span-5 flex flex-col gap-10">
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-[-0.02em]">
+            Walk in. Sit down.{" "}
+            <em className="italic font-normal text-stone-500">Welcome.</em>
           </h1>
 
-          <div className="flex flex-col gap-1">
-            <p className="text-[0.7rem] tracking-[0.32em] uppercase text-stone-500">
-              Address
-            </p>
-            <address className="not-italic text-lg leading-relaxed">
-              {data.streetAddress}
-              <br />
-              {data.city}, {data.region} {data.postalCode}
-            </address>
+          <div className="flex flex-col gap-7">
+            <div className="flex flex-col gap-2">
+              <p className="eyebrow">Address</p>
+              <address className="not-italic text-lg leading-relaxed">
+                {data.streetAddress}
+                <br />
+                {data.city}, {data.region} {data.postalCode}
+              </address>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <p className="eyebrow">Hours</p>
+              <p className="text-lg">{data.hoursReadable}</p>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <p className="eyebrow">Phone</p>
+              <a href={data.tel} className="text-lg hover:text-stone-500 transition-colors">
+                {data.phoneNumber}
+              </a>
+            </div>
           </div>
 
-          <div className="flex flex-col gap-1">
-            <p className="text-[0.7rem] tracking-[0.32em] uppercase text-stone-500">
-              Hours
-            </p>
-            <p className="text-lg">{data.hoursReadable}</p>
-          </div>
-
-          <div className="flex flex-col gap-1">
-            <p className="text-[0.7rem] tracking-[0.32em] uppercase text-stone-500">
-              Phone
-            </p>
-            <a href={data.tel} className="text-lg underline underline-offset-4 hover:text-stone-500">
-              {data.phoneNumber}
+          <div className="flex flex-col gap-4">
+            <a
+              href={data.bookingUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-solid self-start"
+            >
+              Book online
             </a>
+            <p className="text-sm text-stone-500">
+              Or call ahead — walk-ins always welcome.
+            </p>
           </div>
         </div>
 

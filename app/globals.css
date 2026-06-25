@@ -3,23 +3,46 @@
 @theme {
   --font-display: var(--font-display), ui-serif, Georgia, serif;
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Warm, paper-like neutrals */
+  --color-cream: #faf8f5;
+  --color-ink: #1c1917;
 }
 
 @layer base {
   html {
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
   body {
-    @apply leading-relaxed text-stone-900 selection:bg-stone-900 selection:text-stone-100;
+    @apply leading-relaxed bg-cream text-ink selection:bg-stone-900 selection:text-stone-100;
   }
   h1, h2, h3 {
-    @apply font-display tracking-tight;
+    @apply font-display font-normal tracking-[-0.02em];
+  }
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-none ring-1 ring-stone-900 ring-offset-4 ring-offset-cream;
   }
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-stone-300 rounded-full;
+  }
+}
+
+@layer utilities {
+  /* Hairline label — used sparingly */
+  .eyebrow {
+    @apply text-[0.65rem] tracking-[0.34em] uppercase text-stone-500;
+  }
+  /* The single button style, used everywhere */
+  .btn-solid {
+    @apply inline-flex items-center justify-center text-[0.7rem] tracking-[0.24em] uppercase px-8 py-4 transition-colors duration-300 bg-stone-900 text-stone-50 hover:bg-stone-700;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center text-[0.7rem] tracking-[0.24em] uppercase px-8 py-4 transition-colors duration-300 border border-stone-300 text-stone-700 hover:border-stone-900 hover:text-stone-900;
   }
 }
