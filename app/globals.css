@@ -7,6 +7,10 @@
   /* Warm, paper-like neutrals */
   --color-cream: #faf8f5;
   --color-ink: #1c1917;
+
+  /* Brand colours — matched to the storefront sign's red + navy */
+  --color-brand-red: #d8252a;
+  --color-brand-navy: #1b3a6b;
 }
 
 @layer base {
@@ -37,6 +41,17 @@
   /* Hairline label — used sparingly */
   .eyebrow {
     @apply text-[0.65rem] tracking-[0.34em] uppercase text-stone-500;
+  }
+  /* Nav link with an expanding underline on hover */
+  .nav-link {
+    @apply relative inline-block;
+  }
+  .nav-link::after {
+    content: "";
+    @apply absolute left-0 -bottom-1.5 h-px w-full origin-right scale-x-0 bg-brand-navy transition-transform duration-300 ease-out;
+  }
+  .nav-link:hover::after {
+    @apply origin-left scale-x-100;
   }
   /* The single button style, used everywhere */
   .btn-solid {

@@ -15,8 +15,8 @@ export default function Store() {
       <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
         <div className="lg:col-span-5 flex flex-col gap-10">
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[0.95] tracking-[-0.02em]">
-            Walk in. Sit down.{" "}
-            <em className="italic font-normal text-stone-500">Welcome.</em>
+            Come say{" "}
+            <em className="italic font-normal text-stone-500">hello.</em>
           </h1>
 
           <div className="flex flex-col gap-7">
